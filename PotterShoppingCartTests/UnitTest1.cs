@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PotterShoppingCartTests
 {
@@ -58,8 +57,23 @@ namespace PotterShoppingCartTests
             };
 
             CheckoutAmountShouldBe(320, books);
-
         }
+
+        [TestMethod]
+        public void CheckoutTest_5_diff_books_amount_should_be_375()
+        {
+            var books = new List<Book>()
+            {
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "4"},
+                new Book() {ISBN = "5"},
+            };
+
+            CheckoutAmountShouldBe(375, books);
+        }
+
         private static void CheckoutAmountShouldBe(decimal expected, List<Book> books)
         {
             var target = new Cart();
