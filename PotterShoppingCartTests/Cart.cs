@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace PotterShoppingCartTests
 {
@@ -8,9 +9,9 @@ namespace PotterShoppingCartTests
         {
         }
 
-        public decimal Checkout(List<Book> books)
+        public decimal Checkout(IEnumerable<Book> books)
         {
-            return 0;
+            return books.Sum(x => 100);
         }
     }
 }
