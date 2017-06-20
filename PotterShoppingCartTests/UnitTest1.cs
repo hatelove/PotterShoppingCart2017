@@ -74,6 +74,20 @@ namespace PotterShoppingCartTests
             CheckoutAmountShouldBe(375, books);
         }
 
+        [TestMethod]
+        public void CheckoutTest_buy_first_1_book_second_1_book_third_2_book_amount_should_be_370()
+        {
+            var books = new List<Book>()
+            {
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "3"},
+            };
+
+            CheckoutAmountShouldBe(370, books);
+        }
+
         private static void CheckoutAmountShouldBe(decimal expected, List<Book> books)
         {
             var target = new Cart();
