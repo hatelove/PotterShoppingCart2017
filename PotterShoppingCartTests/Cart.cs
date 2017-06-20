@@ -10,7 +10,8 @@ namespace PotterShoppingCartTests
             {0, 0},
             {1, 1},
             {2, 0.95m},
-            {3, 0.9m}
+            {3, 0.9m},
+            {4, 0.8m },
         };
 
         private const int price = 100;
