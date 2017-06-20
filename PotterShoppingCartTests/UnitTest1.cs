@@ -11,11 +11,15 @@ namespace PotterShoppingCartTests
         public void CheckoutTest_0_books_amount_should_be_0()
         {
             var books = new List<Book>();
+            CheckoutAmountShouldBe(0, books);
+        }
+
+        private static void CheckoutAmountShouldBe(decimal expected, List<Book> books)
+        {
             var target = new Cart();
 
             decimal actual = target.Checkout(books);
 
-            var expected = 0;
             Assert.AreEqual(expected, actual);
         }
     }
