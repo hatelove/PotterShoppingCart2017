@@ -5,19 +5,28 @@ namespace PotterShoppingCartTests
 {
     internal class Cart
     {
+        private const int price = 100;
+
         public Cart()
         {
         }
 
         public decimal Checkout(IEnumerable<Book> books)
         {
-            decimal amount = books.Sum(x => 100);
+            decimal amount = books.Sum(x => price);
+            var discount = GetDiscount(books);
+
+            return amount * discount;
+        }
+
+        private static decimal GetDiscount(IEnumerable<Book> books)
+        {
             if (books.Count() == 2)
             {
-                amount = amount * 0.95m;
+                return 0.95m;
             }
 
-            return amount;
+            return 1;
         }
     }
 }
