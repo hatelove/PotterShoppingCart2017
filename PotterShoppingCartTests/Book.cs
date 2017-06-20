@@ -2,5 +2,6 @@
 {
     internal class Book
     {
+        public string ISBN { get; set; }
     }
 }
