@@ -25,6 +25,10 @@ namespace PotterShoppingCartTests
             {
                 return 0.95m;
             }
+            else if (books.Count() == 3)
+            {
+                return 0.9m;
+            }
 
             return 1;
         }
