@@ -5,6 +5,14 @@ namespace PotterShoppingCartTests
 {
     internal class Cart
     {
+        private Dictionary<int, decimal> _discount = new Dictionary<int, decimal>()
+        {
+            {0, 0},
+            {1, 1},
+            {2, 0.95m},
+            {3, 0.9m}
+        };
+
         private const int price = 100;
 
         public Cart()
@@ -19,19 +27,10 @@ namespace PotterShoppingCartTests
             return amount * discount;
         }
 
-        private static decimal GetDiscount(IEnumerable<Book> books)
+        private decimal GetDiscount(IEnumerable<Book> books)
         {
             var count = books.Count();
-            if (count == 2)
-            {
-                return 0.95m;
-            }
-            else if (count == 3)
-            {
-                return 0.9m;
-            }
-
-            return 1;
+            return this._discount[count];
         }
     }
 }
