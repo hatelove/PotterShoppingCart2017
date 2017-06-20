@@ -14,6 +14,13 @@ namespace PotterShoppingCartTests
             CheckoutAmountShouldBe(0, books);
         }
 
+        [TestMethod]
+        public void CheckoutTest_1_book_amount_should_be_100()
+        {
+            var books = new List<Book> { new Book { ISBN = "1" } };
+            CheckoutAmountShouldBe(100, books);
+        }
+
         private static void CheckoutAmountShouldBe(decimal expected, List<Book> books)
         {
             var target = new Cart();
