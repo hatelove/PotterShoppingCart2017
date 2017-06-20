@@ -10,7 +10,7 @@ namespace PotterShoppingCartTests
 
         public decimal Checkout(List<Book> books)
         {
-            throw new System.NotImplementedException();
+            return 0;
         }
     }
 }
