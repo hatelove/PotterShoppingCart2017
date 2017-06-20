@@ -21,11 +21,12 @@ namespace PotterShoppingCartTests
 
         private static decimal GetDiscount(IEnumerable<Book> books)
         {
-            if (books.Count() == 2)
+            var count = books.Count();
+            if (count == 2)
             {
                 return 0.95m;
             }
-            else if (books.Count() == 3)
+            else if (count == 3)
             {
                 return 0.9m;
             }
