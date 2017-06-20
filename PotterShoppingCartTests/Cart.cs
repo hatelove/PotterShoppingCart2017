@@ -5,6 +5,8 @@ namespace PotterShoppingCartTests
 {
     internal class Cart
     {
+        private const int price = 100;
+
         private Dictionary<int, decimal> _discount = new Dictionary<int, decimal>()
         {
             {0, 0},
@@ -14,8 +16,6 @@ namespace PotterShoppingCartTests
             {4, 0.8m },
             {5, 0.75m },
         };
-
-        private const int price = 100;
 
         public Cart()
         {
