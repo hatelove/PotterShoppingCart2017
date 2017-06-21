@@ -23,7 +23,19 @@ namespace PotterShoppingCartTests
 
         public decimal Checkout(IEnumerable<Book> books)
         {
-            return CheckoutBySuites(books, 0);
+            var suites = GetSuites(books);
+            return suites.Sum(s => AmountOfEachSuite(s));
+        }
+
+        private IEnumerable<IEnumerable<Book>> GetSuites(IEnumerable<Book> books)
+        {
+            var unCheckedoutBooks = books;
+            while (unCheckedoutBooks.Any())
+            {
+                var suite = unCheckedoutBooks.GroupBy(b => b.ISBN).Select(x => x.First());
+                yield return suite;
+                unCheckedoutBooks = unCheckedoutBooks.Except(suite);
+            }
         }
 
         private decimal CheckoutBySuites(IEnumerable<Book> books, decimal amount)
