@@ -121,6 +121,96 @@ namespace PotterShoppingCartTests
             CheckoutAmountShouldBe(640, books);
         }
 
+        [TestMethod]
+        public void thereAre_5_3_2_Should_be_830()
+        {
+            var books = new List<Book>
+            {
+                new Book() {ISBN = "1"},                
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},                
+                new Book() {ISBN = "4"},
+                new Book() {ISBN = "5"},
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+            };
+
+            CheckoutAmountShouldBe(830, books);
+        }
+
+        [TestMethod]
+        public void thereAre_5_4_1_Should_be_795()
+        {
+            var books = new List<Book>
+            {
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "4"},
+                new Book() {ISBN = "5"},
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "4"},
+                new Book() {ISBN = "2"},
+            };
+
+            CheckoutAmountShouldBe(795, books);
+        }
+
+        [TestMethod]
+        public void thereAre_5_5_3_Should_be_1015()
+        {
+            var books = new List<Book>
+            {
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "4"},
+                new Book() {ISBN = "5"},
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "4"},
+                new Book() {ISBN = "5"},
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+            };
+
+            CheckoutAmountShouldBe(1015, books);
+        }
+
+        [TestMethod]
+        public void thereAre_5_3_5_3_Should_be_1280()
+        {
+            var books = new List<Book>
+            {
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "4"},
+                new Book() {ISBN = "5"},
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "4"},
+                new Book() {ISBN = "5"},
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+            };
+
+            CheckoutAmountShouldBe(1280, books);
+        }
+
         private static void CheckoutAmountShouldBe(decimal expected, List<Book> books)
         {
             var target = new Cart();
