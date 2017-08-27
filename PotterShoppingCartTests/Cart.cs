@@ -20,10 +20,19 @@ namespace PotterShoppingCartTests
         public decimal Checkout(IEnumerable<Book> books)
         {
             var suites = GetSuites(books);
-            return suites.Sum(s => AmountOfEachSuite(s));
+            return suites.Sum(s => AmountOfEachSuite(s.Value));
         }
 
-        private IEnumerable<List<Book>> GetSuites(IEnumerable<Book> books)
+        private Dictionary<int, List<Book>> GetSuites(IEnumerable<Book> books)
+        {
+            var suites = GetSuitesByDefault(books);
+
+            Convert3And5PairTo4And4Pair(suites);
+
+            return suites;
+        }
+
+        private static Dictionary<int, List<Book>> GetSuitesByDefault(IEnumerable<Book> books)
         {
             var index = 0;
             var result = new Dictionary<int, List<Book>>();
@@ -39,8 +48,7 @@ namespace PotterShoppingCartTests
                 index++;
             }
 
-            Convert3And5PairTo4And4Pair(result);
-            return result.Select(x => x.Value);
+            return result;
         }
 
         private static void Convert3And5PairTo4And4Pair(Dictionary<int, List<Book>> suites)
