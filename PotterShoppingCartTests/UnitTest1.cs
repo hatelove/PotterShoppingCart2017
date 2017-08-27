@@ -103,6 +103,24 @@ namespace PotterShoppingCartTests
             CheckoutAmountShouldBe(460, books);
         }
 
+        [TestMethod]
+        public void CheckoutTest_BooksOfSuite_has_5_and_3_should_consolidate_to_4_and_4()
+        {
+            var books = new List<Book>
+            {
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "4"},
+                new Book() {ISBN = "5"},
+            };
+
+            CheckoutAmountShouldBe(640, books);
+        }
+
         private static void CheckoutAmountShouldBe(decimal expected, List<Book> books)
         {
             var target = new Cart();
