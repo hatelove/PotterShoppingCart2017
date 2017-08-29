@@ -122,13 +122,32 @@ namespace PotterShoppingCartTests
         }
 
         [TestMethod]
+        public void thereAre_5_4_Should_be_695()
+        {
+            var books = new List<Book>
+            {
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "4"},
+                new Book() {ISBN = "5"},
+                new Book() {ISBN = "1"},
+                new Book() {ISBN = "2"},
+                new Book() {ISBN = "3"},
+                new Book() {ISBN = "4"},
+            };
+
+            CheckoutAmountShouldBe(695, books);
+        }
+
+        [TestMethod]
         public void thereAre_5_3_2_Should_be_830()
         {
             var books = new List<Book>
             {
-                new Book() {ISBN = "1"},                
+                new Book() {ISBN = "1"},
                 new Book() {ISBN = "2"},
-                new Book() {ISBN = "3"},                
+                new Book() {ISBN = "3"},
                 new Book() {ISBN = "4"},
                 new Book() {ISBN = "5"},
                 new Book() {ISBN = "1"},
